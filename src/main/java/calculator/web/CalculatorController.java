@@ -17,11 +17,18 @@ public class CalculatorController {
 					consumes = MediaType.APPLICATION_JSON_VALUE,
 					produces = MediaType.APPLICATION_JSON_VALUE)
 	public CalculatorResponse add(@RequestBody CalculatorRequest req) {
-		System.out.println("Value is:" + req.getI() +","+ req.getJ());
-
 		int sum = req.getI() + req.getJ();
 		CalculatorResponse res = new CalculatorResponse(sum);
-		System.out.println("Sum is:" + res.getResult());
+		return res;
+	}
+
+	@RequestMapping(value = "/sub",
+			method = RequestMethod.POST,
+			consumes = MediaType.APPLICATION_JSON_VALUE,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public CalculatorResponse sub(@RequestBody CalculatorRequest req) {
+		int sub = req.getI() - req.getJ();
+		CalculatorResponse res = new CalculatorResponse(sub);
 		return res;
 	}
 	

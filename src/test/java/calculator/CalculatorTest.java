@@ -19,8 +19,12 @@ public class CalculatorTest {
 		assertEquals("Addition not matching", expected, res.getResult());
 	}
 	
-	//@Test
+	@Test
 	public void sub(){
-		
+		CalculatorController calc = new CalculatorController();
+		CalculatorRequest req = new CalculatorRequest(110, 20);
+		CalculatorResponse res = calc.sub(req);
+		int expected = req.getI() - req.getJ();
+		assertEquals("Substraction not matching", expected, res.getResult());
 	}
 }
