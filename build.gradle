@@ -7,23 +7,24 @@
  */
 
 // Apply the java-library plugin to add support for Java Library
-apply plugin: 'java-library'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
-    jcenter()
+    //jcenter()
+	mavenCentral()
 }
 
 dependencies {
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
-    api 'org.apache.commons:commons-math3:3.6.1'
-
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation 'com.google.guava:guava:21.0'
-
     // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
+    testCompile 'junit:junit:4.12'
+	compile 'org.springframework:spring-webmvc:4.1.6.RELEASE'
+	compile 'com.fasterxml.jackson.core:jackson-core:2.8.8'
+	compile 'com.fasterxml.jackson.core:jackson-databind:2.8.8'
+	providedCompile "javax.servlet:javax.servlet-api:3.0.1"
 }
 
