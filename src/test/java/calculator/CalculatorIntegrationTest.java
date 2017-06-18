@@ -1,9 +1,11 @@
 package calculator;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,12 +39,27 @@ public class CalculatorIntegrationTest {
 	}
 
 	@Test
+	@Ignore
 	public void testSample() throws Exception {
 		this.mockMvc.perform(get("/sample")
 				.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(content().string("{\"result\":100}"));
 	}
 	
+	@Test
+	public void testAdd() throws Exception {
+		this.mockMvc.perform(post("/add")
+				.content("{\"i\":100,\"j\":20}")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(content().string("{\"result\":120}"));
+	}
 	
-
+	@Test
+	public void testSub() throws Exception {
+		this.mockMvc.perform(post("/sub")
+				.content("{\"i\":100,\"j\":20}")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(content().string("{\"result\":80}"));
+	}
+	
 }
