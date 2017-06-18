@@ -32,4 +32,13 @@ public class CalculatorController {
 		return res;
 	}
 	
+	@RequestMapping(value = "/sample",
+					method = RequestMethod.GET,
+					consumes = MediaType.APPLICATION_JSON_VALUE
+			)
+	public CalculatorResponse getSample(){
+		CalculatorResponse cr = new CalculatorResponse(100);
+		return cr;
+	}
+	
 }
