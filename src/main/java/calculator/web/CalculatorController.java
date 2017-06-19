@@ -37,8 +37,18 @@ public class CalculatorController {
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public CalculatorResponse mul(@RequestBody CalculatorRequest req) {
-		int sub = req.getI() * req.getJ();
-		CalculatorResponse res = new CalculatorResponse(sub);
+		int mulResult = req.getI() * req.getJ();
+		CalculatorResponse res = new CalculatorResponse(mulResult);
+		return res;
+	}
+	
+	@RequestMapping(value = "/div",
+			method = RequestMethod.POST,
+			consumes = MediaType.APPLICATION_JSON_VALUE,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public CalculatorResponse div(@RequestBody CalculatorRequest req) {
+		int divResult = req.getI() / req.getJ();
+		CalculatorResponse res = new CalculatorResponse(divResult);
 		return res;
 	}
 	
