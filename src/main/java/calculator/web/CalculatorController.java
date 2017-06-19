@@ -32,6 +32,16 @@ public class CalculatorController {
 		return res;
 	}
 	
+	@RequestMapping(value = "/mul",
+			method = RequestMethod.POST,
+			consumes = MediaType.APPLICATION_JSON_VALUE,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public CalculatorResponse mul(@RequestBody CalculatorRequest req) {
+		int sub = req.getI() * req.getJ();
+		CalculatorResponse res = new CalculatorResponse(sub);
+		return res;
+	}
+	
 	@RequestMapping(value = "/sample",
 					method = RequestMethod.GET,
 					consumes = MediaType.APPLICATION_JSON_VALUE
